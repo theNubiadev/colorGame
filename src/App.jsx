@@ -1,6 +1,6 @@
 
 import { ShuffleIcon } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 
  const generateRandomColor = () => {
@@ -10,7 +10,12 @@ import { useState, useCallback } from "react";
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)]
   }
+  // logged the random colors to the console
+  console.log(color);
   return color;
+
+  
+  
  };
 
  const generateColorOptions = (targetColor) => {
