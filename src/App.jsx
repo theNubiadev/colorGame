@@ -62,10 +62,10 @@ function App() {
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="justify-center ">
           <h1 className="text-2xl sm:text-3xl text-center" data-testid="gameInstructions" >Guess the Correct Color </h1>
-      <p>Select the options in the box based on color shown </p>
+      <p className="text-center mx-auto ">Select the options in the box based on color shown </p>
           </div>
 
-          <div className="w-full aspect-video sm:aspect-[2/1] rounded-lg shadow-lg transition-all duration-300"
+          <div className="w-full justify-center aspect-video sm:aspect-[2/1] rounded-lg shadow-lg transition-all duration-300"
             style={{ backgroundColor: targetColor }}
             data-testid="colorBox" />
 
