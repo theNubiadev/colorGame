@@ -48,10 +48,10 @@ function App() {
   const handleColorGuess = (color) => {
     if (color === targetColor) {
       setScore((prev) => prev + 1);
-      setGameStatus("Correct ");
+      setGameStatus("Correct! Well done ");
       setIsCorrect(true);
     } else {
-      setGameStatus("Wrong!");
+      setGameStatus("Wrong! Try again!");
       setIsCorrect(false);
     }
   }
