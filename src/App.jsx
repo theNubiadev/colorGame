@@ -9,12 +9,14 @@ const generateRandomColor = () => {
     color += letters[Math.floor(Math.random() * 16)]
   }
   // logged the random colors to the console
-  console.log(color);
+  // console.log(color);
   return color;
 };
 
+// generate random colors 
 const generateColorOptions = (targetColor) => {
   const colors = [targetColor];
+  // list the amount of colors to be generated i.e 6 
   while (colors.length < 6) {
     const newColor = generateRandomColor();
     if (!colors.includes(newColor)) {
@@ -42,7 +44,7 @@ function App() {
   useEffect(() => {
     initializeGame();
   }, [initializeGame]);
-
+//  logic to handle the  color guess
   const handleColorGuess = (color) => {
     if (color === targetColor) {
       setScore((prev) => prev + 1);
@@ -50,7 +52,7 @@ function App() {
       setIsCorrect(true);
     } else {
       setGameStatus("Wrong!");
-      setIsCorrect(false)
+      setIsCorrect(false);
     }
   }
   return (
@@ -58,8 +60,10 @@ function App() {
 
       <main className="min-h-screen w-full bg-gray-100 p-4 sm:p-8 ">
         <div className="max-w-2xl mx-auto space-y-8">
-          <h1 className="text-2xl sm:text-3xl" data-testid="gameInstructions"
-          >Guess the Correct Color </h1>
+          <div className="justify-center ">
+          <h1 className="text-2xl sm:text-3xl text-center" data-testid="gameInstructions" >Guess the Correct Color </h1>
+      <p>Select the options in the box based on color shown </p>
+          </div>
 
           <div className="w-full aspect-video sm:aspect-[2/1] rounded-lg shadow-lg transition-all duration-300"
             style={{ backgroundColor: targetColor }}
@@ -68,7 +72,8 @@ function App() {
     
           <div className={`text-center text-lg font-semibold transition-opacity duration-300 
                ${gameStatus ? "opacity-100 " : "opacity-0"} 
-               ${isCorrect ? "text-green-600 " : "text-red-600"} `}>
+               ${isCorrect ? "text-green-600 " : "text-red-600"} `}
+               data-testid="gameStatus">
             {gameStatus}
           </div>
 
@@ -79,7 +84,8 @@ function App() {
                 className="aspect-[2/1] rounded-md shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
                 style={{backgroundColor: color}}
                 onClick={() => handleColorGuess(color)} />
-            ))} </div>
+                   ))} 
+            </div>
 
           <div className="flex justify-between items-center px-4 ">
             <div className="text-xl font-bold text-gray-800"
